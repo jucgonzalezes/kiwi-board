@@ -29,18 +29,18 @@ points:
     thumbs:
       anchor:
         ref: matrix_C4_R0
-        shift: [-0.3kx, -1.4ky-spacing]
+        shift: [-0.5kx, -1.25ky-spacing]
       columns:
         TC0:
         TC1:
           key:
-            splay: 15
-            shift: [4, 0]
+            splay: -10
+            shift: [3, -2]
         TC2:
           key:
             height: 1.5kx
-            splay: -20
-            shift: [10, 4]
+            splay: -15
+            shift: [8, 2]
       rows:
         TR0:
           

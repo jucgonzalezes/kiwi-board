@@ -1,0 +1,139 @@
+units:
+  kx: U
+  ky: U
+  spacing: 0.5
+  border: 5
+points:
+  key:
+    padding: kx + spacing
+    spread: ky + spacing
+  zones:
+    matrix:
+      columns:
+        C0:
+          key.stagger: 0
+        C1:
+          key.stagger: 0
+        C2:
+          key.stagger: 8
+        C3:
+          key.stagger: 5
+        C4:
+          key.stagger: -5
+        C5:
+          key.stagger: -3
+      rows:
+        R0:
+        R1:
+        R2:
+    thumbs:
+      anchor:
+        ref: matrix_C4_R0
+        shift: [-0.3kx, -1.4ky-spacing]
+      columns:
+        TC0:
+        TC1:
+          key:
+            splay: 15
+            shift: [4, 0]
+        TC2:
+          key:
+            height: 1.5kx
+            splay: -20
+            shift: [10, 4]
+      rows:
+        TR0:
+          
+outlines:
+  left:
+    - where: true
+      what: rectangle
+      size: [kx + border, ky + border]
+      fillet: 2
+pcbs:
+  left:
+    outlines:
+      main:
+        outline: left
+    footprints:
+      # MX Key switches
+      keyswitches:
+        where: /^matrix_(?!inner_top).*/
+        what: mx
+        params:
+          hotswap: true
+          keycaps: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+        adjust:
+          rotate: -90
+      keyswitch_rot:
+        where: matrix_inner_top
+        what: mx
+        params:
+          hotswap: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+        adjust:
+          rotate: -180
+      # Controller
+      nice_nano:
+        what: nice_nano
+        params: 
+          orientation: up
+        where:
+          ref: matrix_inner_num
+          shift: [0.3, -5]
+          rotate: -90
+      # Diodes
+      diode:
+          what: diode
+          where: /^matrix_(?!inner_top|inner_num).*/
+          params: 
+            from: "{{colrow}}"
+            to: "{{row_net}}"
+          adjust:
+              shift: [-5, 0]
+              rotate: 90
+      diodes_controler_clearance:
+          what: diode
+          where: /^matrix_inner_(top|num).*/
+          params: 
+            from: "{{colrow}}"
+            to: "{{row_net}}"
+          adjust:
+              shift: [-10, 0]
+              rotate: 90
+      # Battery jack
+      jstph:
+          what: jstph
+          where:
+            ref: matrix_middle_top
+            shift: [-2, -10]
+            rotate: -90
+          params:
+              side: B 
+              pos: pos
+              neg: GND
+      # Reset switch 
+      horizontal_reset:
+        what: EVQPUC
+        params:
+          side: B
+          from: GND
+          to: RST
+        where:
+          ref: matrix_inner_top
+          shift: [10, -19]
+          rotate: -90
+      # Power switch
+      battery_switch:
+        what: slider
+        where:
+          ref: matrix_inner_top
+          shift: [9.8, -29]
+          rotate: -90
+        params:
+          side: B
+          from: pos
+          to: RAW

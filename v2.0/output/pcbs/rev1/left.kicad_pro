@@ -449,7 +449,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "gerber-left",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",

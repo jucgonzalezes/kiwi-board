@@ -2,7 +2,8 @@ units:
   kx: u
   ky: u
   spacing: 0.0
-  border: 5
+  border: 2
+  border_ext: border + 5
   outline_measure: kx + border
 points:
   key:
@@ -14,28 +15,39 @@ points:
         ColA:
           key.stagger: 0
           key.column_net: P006
+          key.mirror.column_net: P031
         ColB:
           key.stagger: 0
           key.column_net: P008
+          key.mirror.column_net: P029
         ColC:
           key.stagger: 8
           key.column_net: P017
+          key.mirror.column_net: P002
         ColD:
           key.stagger: 5
           key.column_net: P020
+          key.mirror.column_net: P115
         ColE:
           key.stagger: -5
           key.column_net: P022
+          key.mirror.column_net: P010
         ColF:
           key.stagger: -3
           key.column_net: P029
+          key.mirror.column_net: P009
       rows:
         Row1:
           row_net: P011
+          mirror.row_net: P106
         Row2:
           row_net: P009
+          mirror.row_net: P111
         Row3:
           row_net: P100
+          mirror.row_net: P113
+      anchor:
+        shift: [50,-160]
     thumbs:
       anchor:
         ref: matrix_ColE_Row1
@@ -43,24 +55,32 @@ points:
       columns:
         ColD:
           key.column_net: P020
+          key.mirror.column_net: P115
         ColE:
           key:
             column_net: P022
-            splay: -10
+            mirror.column_net: P010
+            splay: -8
             shift: [3, -2]
         ColF:
           key:
             column_net: P029
+            mirror.column_net: P009
             height: 1.5kx
             splay: -15
             shift: [8, 2]
       rows:
         Row0:
           row_net: P115     
+          mirror.row_net: P104
+  mirror:
+    ref: matrix_ColE_Row3
+    distance: 5kx
 outlines:
-  left:
+  left_pcb:
     - what: polygon
       operation: stack
+      fillet: 2
       points: 
         - ref: matrix_ColA_Row1
           shift: [-0.5kx-border, -0.5ky-border]
@@ -77,9 +97,13 @@ outlines:
         - ref: matrix_ColD_Row3
           shift: [0.5kx+border+spacing, 0.5ky+border]
         - ref: matrix_ColE_Row3
-          shift: [-0.5kx+border, 0.5ky+border]
+          shift: [-0.5kx+border+spacing, 0.5ky+border]
         - ref: matrix_ColE_Row3
-          shift: [1.5kx+border+spacing, 0.5ky+border]
+          shift: [0, 0.5ky+border]
+        - ref: matrix_ColD_Row3
+          shift: [kx+spacing, 0.5ky+border]
+        - ref: matrix_ColD_Row3
+          shift: [2.5kx+border+spacing, 0.5ky+border]
         - ref: matrix_ColF_Row1
           shift: [0.5kx+border, -0.5ky+8]
         - ref: thumbs_ColF_Row0
@@ -96,12 +120,101 @@ outlines:
           shift: [-0.5kx-border,-0.5ky-border]
         - ref: matrix_ColA_Row1
           shift: [2.5kx+2*spacing+border-1, -0.5ky-border]
+  right_pcb:
+    - what: polygon
+      operation: stack
       fillet: 2
+      points: 
+        - ref: mirror_matrix_ColA_Row1
+          shift: [-0.5kx-border, -0.5ky-border]
+        - ref: mirror_matrix_ColA_Row3
+          shift: [-0.5kx-border, 0.5ky+border]
+        - ref: mirror_matrix_ColB_Row3
+          shift: [0.5kx-border+spacing, 0.5ky+border]
+        - ref: mirror_matrix_ColC_Row3
+          shift: [-0.5kx-border, 0.5ky+border]
+        - ref: mirror_matrix_ColC_Row3
+          shift: [0.5kx-border+spacing, 0.5ky+border]
+        - ref: mirror_matrix_ColD_Row3
+          shift: [-0.5kx-border, 0.5ky+border]
+        - ref: mirror_matrix_ColD_Row3
+          shift: [0.5kx+border+spacing, 0.5ky+border]
+        - ref: mirror_matrix_ColE_Row3
+          shift: [-0.5kx+border+spacing, 0.5ky+border]
+        - ref: mirror_matrix_ColE_Row3
+          shift: [0, 0.5ky+border]
+        - ref: mirror_matrix_ColD_Row3
+          shift: [kx+spacing, 0.5ky+border]
+        - ref: mirror_matrix_ColD_Row3
+          shift: [2.5kx+border+spacing, 0.5ky+border]
+        - ref: mirror_matrix_ColF_Row1
+          shift: [0.5kx+border, -0.5ky+8]
+        - ref: mirror_thumbs_ColF_Row0
+          shift: [-0.5kx, 0.5ky+0.25ky+border]
+        - ref: mirror_thumbs_ColF_Row0
+          shift: [0.5kx+border, 0.5ky+0.25ky+border]
+        - ref: mirror_thumbs_ColF_Row0
+          shift: [0.5kx+border, -0.5ky-0.25ky-border]
+        - ref: mirror_thumbs_ColF_Row0
+          shift: [-0.5kx, -0.5ky-0.25ky-border]
+        - ref: mirror_thumbs_ColE_Row0
+          shift: [0,-0.5ky-border]
+        - ref: mirror_thumbs_ColD_Row0
+          shift: [-0.5kx-border,-0.5ky-border]
+        - ref: mirror_matrix_ColA_Row1
+          shift: [2.5kx+2*spacing+border-1, -0.5ky-border]
+  left_full_plate:
+    - what: polygon
+      operation: stack
+      points: 
+        - ref: matrix_ColA_Row1
+          shift: [-0.5kx-border_ext, -0.5ky-border_ext]
+        - ref: matrix_ColA_Row3
+          shift: [-0.5kx-border_ext, 0.5ky+border_ext]
+        - ref: matrix_ColB_Row3
+          shift: [0.5kx-border_ext+spacing, 0.5ky+border_ext]
+        - ref: matrix_ColC_Row3
+          shift: [-0.5kx-border_ext, 0.5ky+border_ext]
+        - ref: matrix_ColC_Row3
+          shift: [0.5kx-border_ext+spacing, 0.5ky+border_ext]
+        - ref: matrix_ColD_Row3
+          shift: [-0.5kx-border_ext, 0.5ky+border_ext]
+        - ref: matrix_ColD_Row3
+          shift: [0.5kx+border_ext+spacing, 0.5ky+border_ext]
+        - ref: matrix_ColD_Row3
+          shift: [0.5kx+border_ext+spacing, 0.5ky+border + 1]
+        - ref: matrix_ColD_Row3
+          shift: [2.5kx+border_ext+spacing, 0.5ky+border + 1]
+        - ref: matrix_ColF_Row1
+          shift: [0.5kx+border_ext, -0.5ky+8]
+        - ref: thumbs_ColF_Row0
+          shift: [-0.5kx, 0.5ky+0.25ky+border_ext]
+        - ref: thumbs_ColF_Row0
+          shift: [0.5kx+border_ext, 0.5ky+0.25ky+border_ext]
+        - ref: thumbs_ColF_Row0
+          shift: [0.5kx+border_ext, -0.5ky-0.25ky-border_ext]
+        - ref: thumbs_ColF_Row0
+          shift: [-0.5kx, -0.5ky-0.25ky-border_ext]
+        - ref: thumbs_ColE_Row0
+          shift: [0,-0.5ky-border_ext]
+        - ref: thumbs_ColD_Row0
+          shift: [-0.5kx-border_ext,-0.5ky-border_ext]
+        - ref: matrix_ColA_Row1
+          shift: [2.32kx+2*spacing+border_ext-1, -0.5ky-border_ext]
+      fillet: 2
+  left_keys:
+    - where: true
+      what: rectangle
+      size: [14, 14]
+  left_cutout:
+    - name: left_full_plate
+    - operation: subtract
+      name: left_keys
 pcbs:
   left:
     outlines:
       main:
-        outline: left
+        outline: left_pcb
     footprints:
       # MX Key switches
       keyswitches:
@@ -131,7 +244,7 @@ pcbs:
           orientation: up
         where:
           ref: matrix_ColF_Row3
-          shift: [0.3, -2]
+          shift: [0.3, 0]
           rotate: -90
       # Diodes
       diode:
@@ -159,7 +272,7 @@ pcbs:
               from: "{{colrow}}"
               to: "{{row_net}}"
           adjust:
-              shift: [-3.5, -4]
+              shift: [-3.5, -2]
               rotate: 90
       # Battery jack
       jstph:
@@ -181,13 +294,13 @@ pcbs:
           to: RST
         where:
           ref: matrix_ColF_Row3
-          shift: [10, 15]
+          shift: [0, 17]
       # Power switch
       battery_switch:
         what: slider
         where:
           ref: matrix_ColE_Row3
-          shift: [7.25, 13]
+          shift: [7.25, 14.5]
         params:
           side: B
           from: pos
@@ -203,3 +316,130 @@ pcbs:
             h_size: 3.0
             v_size: 3.0
             thickness: 0.4
+  right:
+    outlines:
+      main:
+        outline: right_pcb
+    footprints:
+      # MX Key switches
+      keyswitches:
+        where: /^(mirror_matrix|mirror_thumbs).*?(?<!ColF_Row2)$/
+        what: mx
+        params:
+          hotswap: true
+          keycaps: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+        adjust:
+          rotate: 90
+      keyswitch_rot:
+        where: mirror_matrix_ColF_Row2
+        what: mx
+        params:
+          hotswap: true
+          keycaps: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+        adjust:
+          rotate: -180
+      # Controller
+      nice_nano:
+        what: nice_nano
+        params: 
+          orientation: up
+        where:
+          ref: mirror_matrix_ColF_Row3
+          shift: [-1, 0]
+          rotate: 90
+      # Diodes
+      diode:
+          what: diode
+          where: /^(mirror_matrix|mirror_thumbs).*?(?<!Col[FE]_Row[23])$/
+          params: 
+            from: "{{colrow}}"
+            to: "{{row_net}}"
+          adjust:
+              shift: [7.5, -4.5]
+              rotate: -90
+      diode_ColF_Row2:
+          what: diode
+          where: mirror_matrix_ColF_Row2
+          params: 
+              from: "{{colrow}}"
+              to: "{{row_net}}"
+          adjust:
+              shift: [3.5, -8]
+              rotate: 180
+      diode_ColF_Row3:
+          what: diode
+          where: mirror_matrix_ColF_Row3
+          params: 
+              from: "{{colrow}}"
+              to: "{{row_net}}"
+          adjust:
+              shift: [3.5, -2]
+              rotate: -90
+      diode_ColE_Row3:
+          what: diode
+          where: mirror_matrix_ColE_Row3
+          params: 
+              from: "{{colrow}}"
+              to: "{{row_net}}"
+          adjust:
+              shift: [4.5, -5.5]
+              rotate: -90
+      diode_ColE_Row2:
+          what: diode
+          where: mirror_matrix_ColE_Row2
+          params: 
+              from: "{{colrow}}"
+              to: "{{row_net}}"
+          adjust:
+              shift: [7.5, -4.5]
+              rotate: -90
+      # Battery jack
+      jstph:
+          what: jstph
+          where:
+            ref: mirror_matrix_ColC_Row3
+            shift: [3, 6]
+            rotate: 90
+          params:
+              side: B
+              pos: pos
+              neg: GND
+      # Reset switch 
+      horizontal_reset:
+        what: EVQPUC
+        params:
+          side: F
+          from: GND
+          to: RST
+        where:
+          ref: mirror_matrix_ColF_Row3
+          shift: [-0.8, 17]
+      # Power switch
+      battery_switch:
+        what: slider
+        where:
+          ref: mirror_matrix_ColE_Row3
+          shift: [6, 14.5]
+        params:
+          side: B
+          from: pos
+          to: RAW
+      front_text: &text
+        what: text
+        where: &textWhere
+            ref: mirror_matrix_ColC_Row1
+            shift: [0.75kx, -0.8ky]
+        params: &textParams
+            text: KiwiBoard\nRev1
+            justify: left
+            h_size: 3.0
+            v_size: 3.0
+            thickness: 0.4
+cases:
+  plate:
+    - name: left_cutout
+      extrude: 1.2

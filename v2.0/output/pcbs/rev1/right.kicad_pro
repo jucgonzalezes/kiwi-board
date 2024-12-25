@@ -221,7 +221,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "left.kicad_pro",
+    "filename": "right.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -256,83 +256,19 @@
       },
       {
         "netclass": "Default",
-        "pattern": "P006"
+        "pattern": "P031"
       },
       {
         "netclass": "Default",
-        "pattern": "ColA_Row1"
+        "pattern": "mirror_ColA_Row1"
       },
       {
         "netclass": "Default",
-        "pattern": "ColA_Row2"
+        "pattern": "mirror_ColA_Row2"
       },
       {
         "netclass": "Default",
-        "pattern": "ColA_Row3"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "P008"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "ColB_Row1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "ColB_Row2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "ColB_Row3"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "P017"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "ColC_Row1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "ColC_Row2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "ColC_Row3"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "P020"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "ColD_Row1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "ColD_Row2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "ColD_Row3"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "P022"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "ColE_Row1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "ColE_Row2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "ColE_Row3"
+        "pattern": "mirror_ColA_Row3"
       },
       {
         "netclass": "Default",
@@ -340,27 +276,91 @@
       },
       {
         "netclass": "Default",
-        "pattern": "ColF_Row1"
+        "pattern": "mirror_ColB_Row1"
       },
       {
         "netclass": "Default",
-        "pattern": "ColF_Row3"
+        "pattern": "mirror_ColB_Row2"
       },
       {
         "netclass": "Default",
-        "pattern": "ColD_Row0"
+        "pattern": "mirror_ColB_Row3"
       },
       {
         "netclass": "Default",
-        "pattern": "ColE_Row0"
+        "pattern": "P002"
       },
       {
         "netclass": "Default",
-        "pattern": "ColF_Row0"
+        "pattern": "mirror_ColC_Row1"
       },
       {
         "netclass": "Default",
-        "pattern": "ColF_Row2"
+        "pattern": "mirror_ColC_Row2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_ColC_Row3"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P115"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_ColD_Row1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_ColD_Row2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_ColD_Row3"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P010"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_ColE_Row1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_ColE_Row2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_ColE_Row3"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P009"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_ColF_Row1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_ColF_Row3"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_ColD_Row0"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_ColE_Row0"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_ColF_Row0"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "mirror_ColF_Row2"
       },
       {
         "netclass": "Default",
@@ -380,18 +380,6 @@
       },
       {
         "netclass": "Default",
-        "pattern": "P031"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "P002"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "P115"
-      },
-      {
-        "netclass": "Default",
         "pattern": "P113"
       },
       {
@@ -400,11 +388,23 @@
       },
       {
         "netclass": "Default",
-        "pattern": "P010"
+        "pattern": "P006"
       },
       {
         "netclass": "Default",
-        "pattern": "P009"
+        "pattern": "P008"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P017"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P020"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P022"
       },
       {
         "netclass": "Default",
@@ -449,7 +449,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "gerber-right",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
